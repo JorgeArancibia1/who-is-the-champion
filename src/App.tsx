@@ -1,35 +1,85 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+	// const [players, setPlayers] = useState({});
+	// console.log(players);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<div className='section'>
+			<h1>Partido Domingo 16 de Junio</h1>
+			<h1>16:00</h1>
+			<h1>Laurita Vicuña - Av. Ejército Libertador 2341</h1>
+			<div className='container mt-10'>
+				<div>
+					<h2>Equipo A</h2>
+					<div className='players-container'>
+						<div className='container-player-input text-gray-400'>
+							1. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							2. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							3. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							4. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							5. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							6. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							7. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<h2>Equipo B</h2>
+					<div className='players-container'>
+						<div className='container-player-input'>
+							1. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							2. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							3. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							4. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							5. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							6. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+						<div className='container-player-input'>
+							7. <input value="Jugador" type='text' /> <button>Confirmar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h2>Reservas</h2>
+			<div className='container-player-input text-gray-400'>
+				1. <input type='text' /> <button>Confirmar</button>
+			</div>
+			<div className='container-player-input mt-4'>
+				2. <input type='text' /> <button>Confirmar</button>
+			</div>
+			<div className='container-player-input mt-4 text-gray-400'>
+				3. <input type='text' /> <button>Confirmar</button>
+			</div>
+			<div className='container-player-input mt-4'>
+				4. <input type='text' /> <button>Confirmar</button>
+			</div>
+		</div>
+	);
 }
 
-export default App
+export default App;
