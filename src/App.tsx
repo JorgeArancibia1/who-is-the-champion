@@ -42,7 +42,8 @@ function App() {
 					<h2>Equipo B</h2>
 					<div className='players-container'>
 						<div className='container-player-input'>
-							1. <input value="Jugador" type='text' /> <button>Confirmar</button>
+							1. <input value="Jugador" type='text' /> <button className='text-green-500'>Confirmar</button>
+							<button>Anular</button>
 						</div>
 						<div className='container-player-input'>
 							2. <input value="Jugador" type='text' /> <button>Confirmar</button>
@@ -71,12 +72,6 @@ function App() {
 			</div>
 			<div className='container-player-input mt-4'>
 				2. <input type='text' /> <button>Confirmar</button>
-			</div>
-			<div className='container-player-input mt-4 text-gray-400'>
-				3. <input type='text' /> <button>Confirmar</button>
-			</div>
-			<div className='container-player-input mt-4'>
-				4. <input type='text' /> <button>Confirmar</button>
 			</div>
 		</div>
 	);
