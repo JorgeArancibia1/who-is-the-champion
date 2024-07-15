@@ -4,7 +4,7 @@ export interface Game {
 	day: string;
 	month: string;
 	hour: string;
-	teamA?: string[];
-	teamB?: string[];
+	teamA: string[];
+	teamB: string[];
 	__v?: number;
 }
