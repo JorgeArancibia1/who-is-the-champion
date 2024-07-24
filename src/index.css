@@ -72,9 +72,12 @@ button:focus-visible {
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 10% 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  /* grid-template-columns: 50% 50%;
+  grid-template-rows: 10% 90%; */
   width: 100vw;
   /* border: 1px solid green; */
 }
