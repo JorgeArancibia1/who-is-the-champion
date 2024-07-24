@@ -3,16 +3,16 @@ import axios from "axios";
 import { Game } from "../../games/interfaces/games.interface";
 
 // Función para actualizar datos en el servidor
-export const updateGame = async (updatedGame: Game): Promise<Game> => {
-  const { data } = await axios.put('/game ', updatedGame);
+export const updateGame = async (id: string): Promise<Game> => {
+  const { data } = await axios.put('/game ', id);
   return data;
 };
 
-export const useCreateGames = (game: Game) => {
+export const useUpdateGame = (id: string) => {
 
 	const update = useQuery({
-		queryKey: ["game", game],
-		queryFn: () => updateGame(game),
+		queryKey: ["game", id],
+		queryFn: () => updateGame(id),
 		// enabled: !!userQuery.data,
 	});
 

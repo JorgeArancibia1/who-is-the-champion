@@ -43,6 +43,8 @@ export const Home = () => {
 
 	const { lastGame, isLoadingLastGame, lastGameError } = useFetchLastGame();
 
+	// const game = lastGame ?? []; // Para evitar que sea undefined
+
 	// console.log({ lastGame, isLoadingLastGame, lastGameError });
 	// console.log({games, lastGame, isLoading, games: lastGame?.teamA});
 
