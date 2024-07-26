@@ -1,34 +1,28 @@
 import { FC } from "react";
-import { UseFormRegister } from "react-hook-form";
-import { Team } from "../../interfaces";
-import { InputPlayer } from "../InputPlayer";
+import InputPlayer from "../InputPlayer/InputPlayer";
+
+// interface TeamComponentProps {
+//   teamName: 'teamA' | 'teamB';
+//   teamData: string[];
+// 	register: UseFormRegister<Team>;
+// 	changeTeam: (index: number, value: string, team: string) => void;
+// }
 
 interface TeamComponentProps {
-  teamName: 'teamA' | 'teamB';
-  teamData: string[];
-	register: UseFormRegister<Team>;
-	changeTeam: (index: number, value: string, team: string) => void;
+	teamName: string;
 }
 
-export const TeamComponent: FC<TeamComponentProps> = ({
-	teamName,
-	teamData,
-	register,
-	changeTeam
-}) => {
-	return (
-		<div>
-			<h2>{`Team ${teamName}`}</h2>
-			{teamData.map((player, index) => (
-				<InputPlayer
-					key={index}
-					index={index}
-					player={player}
-					team={teamName}
-					register={register}
-					changeTeam={() => changeTeam(index, player, teamName)}
-				/>
-			))}
-		</div>
-	);
+
+const TeamComponent: FC<TeamComponentProps> = ({ teamName }) => {
+
+  return (
+    <div>
+      <h3>{teamName.replace('team', 'Team ')}</h3>
+      {Array.from({ length: 7 }).map((_, index) => (
+        <InputPlayer key={index} name={`${teamName}.${index}`} index={index} />
+      ))}
+    </div>
+  );
 };
+
+export default TeamComponent;
