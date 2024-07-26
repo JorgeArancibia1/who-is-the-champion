@@ -1,76 +1,52 @@
-import { ChangeEvent, useState } from "react";
-import { useForm } from "react-hook-form";
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { TeamComponent } from "../components/TeamComponent";
+import { Game } from "../games/interfaces/games.interface";
 import { useFetchLastGame } from "../hooks/games/useFetchLastGame";
-import { Game } from "../interfaces";
+import { updateGame } from "../hooks/games/useUpdateGame";
+// import { Team } from "../interfaces";
+
+interface FormInputs {
+	game: Game;
+}
+
+interface FormInputs2 {
+	teamA: string[];
+	teamB: string[];
+}
 
 export const Home = () => {
-	const [game, setGame] = useState({} as Game);
+	// const [game, setGame] = useState({} as Game);
 	const [teamA, setTeamA] = useState(Array(7).fill(""));
 	const [teamB, setTeamB] = useState(Array(7).fill(""));
 	const [team, setTeam] = useState(Array(7).fill(""));
-
-	const updateTeam = (
-		index: number,
-		value: ChangeEvent<HTMLInputElement> | string,
-		team: string
-	) => {
-		console.log({ index, value, team });
-		const newTeamA = [...teamA];
-		newTeamA[index] = value;
-		setTeamA(newTeamA);
-		setGame((prevGame) => ({
-			...prevGame,
-			teamA: newTeamA,
-		}));
-	};
-
-	const updateTeamB = (index: number, value: ChangeEvent<HTMLInputElement>) => {
-		const newTeamA = [...teamA];
-		newTeamA[index] = value;
-		setTeamA(newTeamA);
-		setGame((prevGame) => ({
-			...prevGame,
-			teamA: newTeamA,
-		}));
-	};
 
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm();
+	} = useForm<FormInputs>();
 
 	const { lastGame, isLoadingLastGame, lastGameError } = useFetchLastGame();
 
-	// const game = lastGame ?? []; // Para evitar que sea undefined
-
-	// console.log({ lastGame, isLoadingLastGame, lastGameError });
-	// console.log({games, lastGame, isLoading, games: lastGame?.teamA});
-
-	const onSubmit = handleSubmit((props) => {
-		console.log(props);
-		// console.log({ team });
-		// setGame((prev) => ({
-		// 	...prev,
-		// 	[team]: team,
-		// }));
+	const mutation = useMutation((game: Game) => updateGame(game._id), {
+		onSuccess: (data: unknown) => {
+			console.log('Actualización exitosa', data);
+		},
+		onError: (error: Error) => {
+			console.log('Error en la actualización', error);
+		},
 	});
-
-	// Mutación para actualizar los datos
-	// const mutation = useMutation(updateGame, {
-	// 	onSuccess: () => {
-	// 		queryClient.invalidateQueries(['game']);
-	// 	},
-	// });
-
-	// Manejar el envío de la actualización
-	// const handleUpdate = () => {
-	//   mutation.mutate({ teamA: localTeamA });
-	// };
 
 	if (isLoadingLastGame) return <div>Loading...</div>;
 	if (lastGameError) return <div>An error occurred: {lastGameError}</div>;
+
+	const onSubmit: SubmitHandler<FormInputs> = (data) => {
+		console.log(data);
+		mutation.mutate(data.game);
+	};
 
 	return (
 		<div>
@@ -84,30 +60,31 @@ export const Home = () => {
 				<h1>Loading...</h1>
 			)}
 
-			{errors.place && <p>Hubo un error con la dirección.</p>}
+			{errors && <p>Hubo un error con la dirección.</p>}
 
-			<form onSubmit={onSubmit} className='container mt-10 border'>
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className='container mt-10 border'
+			>
 				{!isLoadingLastGame && (
 					<>
-						<div className="container">
+						<div className='container'>
 							<TeamComponent
 								teamName='teamA'
 								teamData={lastGame?.teamA || []}
 								register={register}
-								changeTeam={updateTeam}
+								changeTeam={updateTeam2}
 							/>
 							<TeamComponent
 								teamName='teamB'
 								teamData={lastGame?.teamB || []}
 								register={register}
-								changeTeam={updateTeam}
+								changeTeam={updateTeam2}
 							/>
 						</div>
-						<input
-							type='submit'
-							value='Inscribete'
-							className='border m-0 p-0 h-10'
-						/>
+						<button type='submit' className='border m-0 p-0 h-10'>
+							Inscribete
+						</button>
 					</>
 				)}
 				{}

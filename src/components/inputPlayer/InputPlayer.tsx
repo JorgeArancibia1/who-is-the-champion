@@ -1,17 +1,18 @@
 import { FC } from "react";
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
+import { Team } from "../../interfaces";
 
 interface Props {
-	register: UseFormRegister<FieldValues> | undefined;
+	register: UseFormRegister<Team>;
 	index: number;
 	player: string;
-	team: string;
+	team: "teamA" | "teamB";
 	changeTeam: (index: number, value: string, team: string) => void;
 }
 
 export const InputPlayer: FC<Props> = ({
-	register = () => {},
-	changeTeam = () => {},
+	register,
+	changeTeam,
 	index,
 	player = "Jugador",
 	team = "teamA",
@@ -21,7 +22,7 @@ export const InputPlayer: FC<Props> = ({
 		<div className='container-player-input text-gray-400 mb-2'>
 			{index + 1}.{" "}
 			<input
-				{...register(`${team}.${index}.value`)}
+				{...register(`${team}.${index}`)}
 				// value={player}
 				type='text'
 				onChange={() => changeTeam(index, player, team)}

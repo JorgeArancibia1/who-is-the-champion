@@ -1,11 +1,12 @@
 import { FC } from "react";
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
+import { Team } from "../../interfaces";
 import { InputPlayer } from "../InputPlayer";
 
 interface TeamComponentProps {
   teamName: 'teamA' | 'teamB';
   teamData: string[];
-	register: UseFormRegister<FieldValues> | undefined;
+	register: UseFormRegister<Team>;
 	changeTeam: (index: number, value: string, team: string) => void;
 }
 

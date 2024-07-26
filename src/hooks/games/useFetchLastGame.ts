@@ -14,11 +14,12 @@ const getLastGame = async (): Promise<Game | void> => {
 
 export const useFetchLastGame = () => {
 	const lastGameQuery = useQuery({
-		queryKey: ['game', 'last'],
+		queryKey: ['lastGame'],
 		queryFn: () => getLastGame(),
 		retry: 1, // Reintentos cuando da error
 		refetchOnWindowFocus: false, // Para que no se refresque al salir y entrar de la ventana
 		staleTime: 1000 * 5, // Tiempo que la data se considera fresca. 5 segundos
+		// enabled: searchName !== undefined, // Esto es para setear una condición para que se ejecute la query
 	});
 
 	return {
