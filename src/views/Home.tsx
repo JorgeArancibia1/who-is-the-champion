@@ -2,6 +2,7 @@
 import { FormProvider, useForm } from "react-hook-form";
 import TeamComponent from "../components/TeamComponent/TeamComponent";
 import { Game } from "../games/interfaces/games.interface";
+import { useFetchLastGame } from "../hooks/games/useFetchLastGame";
 // import { Team } from "../interfaces";
 
 // interface FormInputs {
@@ -26,16 +27,10 @@ import { Game } from "../games/interfaces/games.interface";
 // };
 
 export const Home = () => {
+	const { lastGame, isLoadingLastGame, lastGameError } = useFetchLastGame();
+
 	const methods = useForm<Game>({
-		defaultValues: {
-			place: "Estadio Nacional",
-			day: "25",
-			month: "07",
-			hour: "18:00",
-			teamA: ["", "", "", "", "", "", ""],
-			teamB: ["", "", "", "", "", "", ""],
-		},
-	
+		defaultValues: {...lastGame},
 	});
 	// const { data: game, isLoading } = useQuery<Game>({ queryKey: ["updateGame"] }, fetchGame);
 
