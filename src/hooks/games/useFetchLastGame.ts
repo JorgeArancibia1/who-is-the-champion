@@ -6,7 +6,9 @@ const getLastGame = async (): Promise<Game | void> => {
 	try {
 		const { data } = await githubApi.get<Game>('/games/last');
 		console.log(data)
-		return data;
+		while (data !== undefined) {
+			return data;
+		}
 	} catch (error) {
 		console.log(error);
 	}
@@ -16,10 +18,15 @@ export const useFetchLastGame = () => {
 	const lastGameQuery = useQuery({
 		queryKey: ['lastGame'],
 		queryFn: () => getLastGame(),
-		retry: 1, // Reintentos cuando da error
-		refetchOnWindowFocus: false, // Para que no se refresque al salir y entrar de la ventana
-		staleTime: 1000 * 5, // Tiempo que la data se considera fresca. 5 segundos
+		retry: 3, // Reintentos cuando da error
+		refetchOnWindowFocus: true, // Para que no se refresque al salir y entrar de la ventana
+		staleTime: 1000 * 1, // Tiempo que la data se considera fresca. 1 segundos
 		// enabled: searchName !== undefined, // Esto es para setear una condición para que se ejecute la query
+		// refetchInterval: 1000 * 60, // Refresca la data cada minuto
+		// refetchIntervalInBackground: true, // Refresca la data cada minuto en segundo plano
+		// refetchOnMount: false, // Refresca la data al montar el componente
+		// refetchOnReconnect: false, // Refresca la data al reconectar
+		// refetchOnFocus: false, // Refresca la data al enfocar
 	});
 
 	return {

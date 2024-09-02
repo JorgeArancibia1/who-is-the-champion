@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { FormProvider, useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import TeamComponent from "../components/TeamComponent/TeamComponent";
-import { Game } from "../games/interfaces/games.interface";
 import { useFetchLastGame } from "../hooks/games/useFetchLastGame";
+import { useUpdateGameMutation } from "../hooks/games/useUpdateGameMutation";
 // import { Team } from "../interfaces";
 
 // interface FormInputs {
@@ -26,34 +27,74 @@ import { useFetchLastGame } from "../hooks/games/useFetchLastGame";
 //   };
 // };
 
+interface InputsProps {
+	id: string;
+	place: string;
+	day: string;
+	month: string;
+	hour: string;
+	teamA: string[];
+	teamB: string[];
+}
+
 export const Home = () => {
 	const { lastGame, isLoadingLastGame, lastGameError } = useFetchLastGame();
 
-	const methods = useForm<Game>({
-		defaultValues: {...lastGame},
+	// const { updateGameQuery } = useUpdateGame(lastGame?._id ?? "");
+	const updateGame = useUpdateGameMutation();
+	
+	// console.log({ lastGame });
+	
+	const methods = useForm<InputsProps>({
+		// TODO: Cambiar valores por defecto
+		defaultValues: {
+			place: lastGame?.place,
+			day: lastGame?.day,
+			month: lastGame?.month,
+			hour: lastGame?.hour,
+			teamA: lastGame?.teamA ?? ["", "", "", "", "", "", ""],
+			teamB: lastGame?.teamB ?? ["", "", "", "", "", "", ""],
+		},
 	});
-	// const { data: game, isLoading } = useQuery<Game>({ queryKey: ["updateGame"] }, fetchGame);
+	
+	// const newTeamA = methods.watch('teamA');
+	useEffect(() => {
+		methods.reset({
+			...methods.getValues(),
+			teamA: lastGame?.teamA ?? ["", "", "", "", "", "", ""],
+			teamB: lastGame?.teamB ?? ["", "", "", "", "", "", ""],
+		});
+	}, [lastGame, methods]);
 
-	// console.log(game)
-
-	// const mutation = useUpdateGameMutation();
-
-	const onSubmit = (data: Game) => {
-		// mutation.mutate(data);
+	if (updateGame.isError) {
+		return <div>{`${updateGame.error}`}</div>;
+	}
+	
+	if (isLoadingLastGame) {
+		return <div>Loading...</div>;
+	}
+	
+	const onSubmit: SubmitHandler<InputsProps> = (data) => {
 		console.log(data);
+		updateGame.mutate(data);
+		// console.log(updateGame.data);
 	};
-
-	// if (isLoading) {
-	// 	return <div>Loading...</div>;
-	// }
 
 	return (
 		<FormProvider {...methods}>
-			<form onSubmit={methods.handleSubmit(onSubmit)}>
-				<TeamComponent teamName='teamA' />
-				<TeamComponent teamName='teamB' />
-				<button type='submit'>Enviar</button>
-			</form>
+			{lastGame !== undefined && lastGame !== null && !isLoadingLastGame && (
+				<form onSubmit={methods.handleSubmit(onSubmit)}>
+					<h1>{`Partido ${lastGame.day} de ${lastGame.month}`}</h1>
+					<h1>{lastGame.hour}</h1>
+					<h1>{lastGame.place}</h1>
+
+					<TeamComponent teamName='teamA' />
+					<TeamComponent teamName='teamB' />
+					<button type='submit'>Enviar</button>
+				</form>
+			)}
+
+			{!!lastGameError && <p>Hubo un error con la dirección.</p>}
 		</FormProvider>
 	);
 };

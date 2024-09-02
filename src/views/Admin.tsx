@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { TableWithStripe } from "../components/Table";
+import { Game } from "../games/interfaces/games.interface";
 import { useCreateGames } from "../hooks/games/useCreateGame";
-import { Game } from "../interfaces";
 
 export const Admin = () => {
 	const [game, setGame] = useState({} as Game);
 
-	const mockGame = {
-		place: "Luis Matte",
-		day: "20",
-		month: "Julio",
-		hour: "16:00 hrs",
-		teamA: [],
-		teamB: [],
-	};
+	// const mockGame = {
+	// 	place: "Luis Matte",
+	// 	day: "20",
+	// 	month: "Julio",
+	// 	hour: "16:00 hrs",
+	// 	teamA: [],
+	// 	teamB: [],
+	// };
 
 	const {
 		register,
@@ -23,16 +23,21 @@ export const Admin = () => {
 	} = useForm<Game>();
 
 	const onSubmit = handleSubmit((values) => {
-		// values.teamA = ["koke"];
-		// values.teamB = [];
-		setGame(values);
+		
+		setGame(
+			{
+				...values,
+				teamA: ["koke"],
+				teamB: [],
+			}
+		);
 		console.log("VALUES => ", values);
 		console.log("GAME => ", game);
 		// setTeamB(values.teamB);
 	});
 
 	const { createGameQuery } =
-	useCreateGames(game ?? mockGame);
+	useCreateGames(game);
 
     console.log({createGameQuery});
 

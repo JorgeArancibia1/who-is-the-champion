@@ -66,7 +66,7 @@ export function TableWithStripe() {
 	const [games, setGames] = useState([] as Game[]);
 
 	useEffect(() => {
-		fetch("http://localhost:3000/api/games")
+		fetch("http://localhost:3003/api/games")
 			.then((response) => response.json())
 			.then((data) => setGames(data))
 			.catch((error) => console.log(error));
@@ -87,7 +87,7 @@ export function TableWithStripe() {
 				</tr>
 			</thead>
 			<tbody>
-				{games.map(({ place, day, month, hour }, index) => (
+				{games?.map(({ place, day, month, hour }, index) => (
 					<tr key={index} className='even:bg-blue-gray-50/50'>
 						<td className='p-4'>{place}</td>
 						<td className='p-4'>{day}</td>

@@ -1,34 +1,29 @@
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-// interface Props {
-// 	register: UseFormRegister<Team>;
-// 	index: number;
-// 	player: string;
-// 	team: "teamA" | "teamB";
-// 	changeTeam: (index: number, value: string, team: string) => void;
-// }
-
 interface InputPlayerProps {
 	name: string;
 	index: number;
 }
 
 const InputPlayer: FC<InputPlayerProps> = ({ name, index }) => {
-  const { control } = useFormContext();
+	const { control, getValues } = useFormContext();
+	// console.log(getValues());
+	const initialValues = getValues(); // Obtener los valores iniciales de los campos
 
-	console.log(control)
-
-  return (
-    <div>
-      <label>Jugador {index + 1}:</label>
-      <Controller
-        name={name}
-        control={control}
-        render={({ field }) => <input {...field ?? ''} />}
-      />
-    </div>
-  );
+	return (
+		<div>
+			<label>Jugador {index + 1}:</label>
+			<Controller
+				name={name}
+				control={control}
+				defaultValue={initialValues[name]} // Pasar el valor inicial al campo
+				render={({ field }) => (
+					<input value={field.value} onChange={field.onChange} />
+				)}
+			/>
+		</div>
+	);
 };
 
 export default InputPlayer;

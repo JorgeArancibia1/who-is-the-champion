@@ -12,7 +12,6 @@ interface TeamComponentProps {
 	teamName: string;
 }
 
-
 const TeamComponent: FC<TeamComponentProps> = ({ teamName }) => {
 
   return (

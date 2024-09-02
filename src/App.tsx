@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 import "./App.css";
-import { Home } from "./views/Home";
+import { Navigation } from "./routes/Navigation";
 
 export const App = () => {
 	// const [players, setPlayers] = useState({});
@@ -27,7 +27,8 @@ export const App = () => {
 
 	return (
 		<div className='section'>
-			<Home />
+			{/* <Home /> */}
+			<Navigation />
 			{/* <Admin /> */}
 		</div>
 	);
