@@ -12,10 +12,10 @@
 import { githubApi } from "../../api/getGames";
 import { Game } from "../interfaces/games.interface";
 
-export const updateGame = async (game: Game): Promise<Game | void> => {
-  console.log(game);
+export const updateGame = async (gameId: string, game: Game): Promise<Game | void> => {
+  // console.log(game);
   try {
-    const { data } = await githubApi.patch<Game>(`/games/669afa28ce2e0d4a783ef0c0`, game);
+    const { data } = await githubApi.patch<Game>(`/games/${gameId}`, game);
     return data;
   } catch (error) {
     console.log(error);

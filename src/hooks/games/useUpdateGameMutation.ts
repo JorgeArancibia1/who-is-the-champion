@@ -3,9 +3,9 @@ import { updateGame } from "../../games/actions";
 import { Game } from "../../games/interfaces/games.interface";
 import { queryClient } from "../../utils/tanstackQuery";
 
-export const useUpdateGameMutation = () => {
+export const useUpdateGameMutation = (gameId: string) => {
   const mutation = useMutation({
-    mutationFn: (game: Game) => updateGame(game),
+    mutationFn: (game: Game) => updateGame(gameId,game),
     onSuccess: (data) => { // Es la respuesta de la petición http
       console.log("Game updated successfully", data);
       // queryClient.invalidateQueries("lastGame" as InvalidateQueryFilters);

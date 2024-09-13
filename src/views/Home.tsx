@@ -39,9 +39,10 @@ interface InputsProps {
 
 export const Home = () => {
 	const { lastGame, isLoadingLastGame, lastGameError } = useFetchLastGame();
+	console.log({ lastGame });
 
 	// const { updateGameQuery } = useUpdateGame(lastGame?._id ?? "");
-	const updateGame = useUpdateGameMutation();
+	const updateGame = useUpdateGameMutation(lastGame?.id ?? "");
 	
 	// console.log({ lastGame });
 	

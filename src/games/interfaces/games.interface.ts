@@ -1,5 +1,5 @@
 export interface Game {
-  // id?: string;
+  id?: string;
 	_id?: string;
 	place: string;
 	day: string;
