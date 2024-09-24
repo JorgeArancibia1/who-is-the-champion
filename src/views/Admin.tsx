@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { TableWithStripe } from "../components/Table";
 import { Game } from "../games/interfaces/games.interface";
 import { useCreateGames } from "../hooks/games/useCreateGame";
+import { TableWithStripe } from "../components/table";
 
 export const Admin = () => {
 	const [game, setGame] = useState({} as Game);

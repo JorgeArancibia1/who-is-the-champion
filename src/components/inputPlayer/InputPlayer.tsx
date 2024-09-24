@@ -1,25 +1,41 @@
-import { FC } from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import { FC } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
+import UserImg from '../../assets/UserImg';
 
 interface InputPlayerProps {
 	name: string;
 	index: number;
+	colorUser: string;
 }
 
-const InputPlayer: FC<InputPlayerProps> = ({ name, index }) => {
+const InputPlayer: FC<InputPlayerProps> = ({ name, index, colorUser }) => {
 	const { control, getValues } = useFormContext();
 	// console.log(getValues());
 	const initialValues = getValues(); // Obtener los valores iniciales de los campos
 
 	return (
-		<div>
-			<label>Jugador {index + 1}:</label>
+		<div className='flex items-center space-x-4'>
+			<div className='flex flex-col items-center'>
+				<div
+					className={`w-8 h-8 pr-1 ${
+						colorUser === 'blue' ? 'bg-blue-700' : 'bg-red-700'
+					}  rounded-full flex items-center justify-center `}
+				>
+					<UserImg />
+				</div>
+				<label className='text-gray-400 text-xs'>Jugador {index + 1} </label>
+			</div>
 			<Controller
 				name={name}
 				control={control}
 				defaultValue={initialValues[name]} // Pasar el valor inicial al campo
 				render={({ field }) => (
-					<input value={field.value} onChange={field.onChange} />
+					<input
+						className='border border-gray-700 rounded-md bg-gray-800 p-2 text-xs w-22 sm:w-44'
+						placeholder='Player name'
+						value={field.value}
+						onChange={field.onChange}
+					/>
 				)}
 			/>
 		</div>
