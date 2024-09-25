@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Game } from "../../interfaces";
+import { Game } from "../../games/interfaces";
 
 const TABLE_HEAD = ["Lugar", "Día", "Mes", "Hora"];
 
