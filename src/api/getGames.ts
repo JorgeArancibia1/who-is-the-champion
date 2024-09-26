@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const githubApi = axios.create({
-  baseURL: "http://localhost:3003/api",
+  baseURL: `${import.meta.env.VITE_REACT_API_URL}/api`,
   headers: {
     "Content-Type": "application/json",
   },
