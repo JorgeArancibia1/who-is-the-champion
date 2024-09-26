@@ -1,1 +1,1 @@
-export * from "./InputPlayer";
+export * from './InputPlayer';

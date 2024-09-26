@@ -8,7 +8,7 @@ interface InputPlayerProps {
 	colorUser: string;
 }
 
-const InputPlayer: FC<InputPlayerProps> = ({ name, index, colorUser }) => {
+export const InputPlayer: FC<InputPlayerProps> = ({ name, index, colorUser }) => {
 	const { control, getValues } = useFormContext();
 	// console.log(getValues());
 	const initialValues = getValues(); // Obtener los valores iniciales de los campos
@@ -41,5 +41,3 @@ const InputPlayer: FC<InputPlayerProps> = ({ name, index, colorUser }) => {
 		</div>
 	);
 };
-
-export default InputPlayer;

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import InputPlayer from '../inputPlayer/InputPlayer';
+import { InputPlayer } from '../InputPlayer/InputPlayer';
 
 // interface TeamComponentProps {
 //   teamName: 'teamA' | 'teamB';
