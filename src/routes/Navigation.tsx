@@ -37,8 +37,8 @@ export const Navigation = () => {
 				</nav>
 
 				<Routes>
-					<Route path='admin' element={<Admin />} />
 					<Route path='/' element={<Home />} />
+					<Route path='admin' element={<Admin />} />
 					<Route path='/*' element={<h1>No se ha encontrado la página</h1>} />
 				</Routes>
 			</div>
