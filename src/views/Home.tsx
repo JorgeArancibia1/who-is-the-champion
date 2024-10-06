@@ -96,7 +96,7 @@ export const Home = () => {
 	// 	return MySwal.fire(<p>Shorthand works too</p>)
 	// })
 
-	useEffect(() => {
+	// useEffect(() => {
 		if (updateGame.isSuccess) {
 			MySwal.fire({
 				title: <p>Ya estás inscrito</p>,
@@ -105,7 +105,7 @@ export const Home = () => {
 				timer: 1500,
 			});
 		}
-	}, [updateGame.isSuccess]);
+	// }, [updateGame.isSuccess]);
 
 	return (
 		<FormProvider {...methods}>
