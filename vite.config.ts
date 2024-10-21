@@ -20,12 +20,12 @@ export default defineConfig({
 				icons: [
 					{
 						src: "/assets/pwa-64x64.png",
-						sizes: "64x64",
+						sizes: "1300×1390",
 						type: "image/png",
 					},
 					{
 						src: "/assets/pwa-128x128.png",
-						sizes: "128x128",
+						sizes: "1300×1390",
 						type: "image/png",
 					},
 					{
@@ -36,13 +36,13 @@ export default defineConfig({
 					},
 					{
 						src: "/assets/pwa-192x192.png",
-						sizes: "192x192",
+						sizes: "1300×1390",
 						type: "image/png",
 						purpose: "any",
 					},
 					{
 						src: "/assets/pwa-512x512.png",
-						sizes: "512x512",
+						sizes: "1300×1390",
 						type: "image/png",
 						purpose: "maskable",
 					},
