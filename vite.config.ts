@@ -19,8 +19,8 @@ export default defineConfig({
 				background_color: "#d4d4d4",
 				icons: [
 					{
-						src: "/assets/pwa-64x64.png",
-						sizes: "1300×1390",
+						src: "public/64x64.jpeg",
+						sizes: "64x64",
 						type: "image/png",
 					},
 					{
@@ -29,7 +29,7 @@ export default defineConfig({
 						type: "image/png",
 					},
 					{
-						src: "/assets/pelota.png",
+						src: "public/144x144.jpeg",
 						sizes: "144x144",
 						type: "image/png",
 						purpose: "any",
@@ -49,12 +49,13 @@ export default defineConfig({
 				],
 				screenshots: [
 					{
-						src: "/assets/Desktop.png",
+						src: "./src/assets/Desktop.png",
 						sizes: "2872 × 1534",
 						type: "image/png",
+            form_factor: "wide",
 					},
 					{
-						src: "/assets/Mobile.png",
+						src: "./src/assets/Mobile.png",
 						sizes: "720x1280",
 						type: "image/png",
 					},
