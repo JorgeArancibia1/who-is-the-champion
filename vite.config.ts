@@ -22,6 +22,17 @@ export default defineConfig({
             type: 'image/png',
           },
           {
+            src: '/assets/icons/pwa-128x128.png',
+            sizes: '128x128',
+            type: 'image/png',
+          },
+          {
+            src: '/assets/icons/pelota.png',
+            sizes: '144x144',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
             src: '/assets/icons/pwa-192x192.png',
             sizes: '192x192',
             type: 'image/png',
