@@ -29,20 +29,20 @@ export default defineConfig({
 						type: "image/png",
 					},
 					{
-						src: "src/assets/144x144.jpeg",
+						src: "src/assets/144.png",
 						sizes: "144x144",
 						type: "image/png",
 						purpose: "any",
 					},
 					{
-						src: "/assets/pwa-192x192.png",
-						sizes: "1300×1390",
+						src: "/assets/192.png",
+						sizes: "192×192",
 						type: "image/png",
 						purpose: "any",
 					},
 					{
-						src: "/assets/pwa-512x512.png",
-						sizes: "1300×1390",
+						src: "/assets/512.png",
+						sizes: "512×512",
 						type: "image/png",
 						purpose: "maskable",
 					},
@@ -50,7 +50,7 @@ export default defineConfig({
 				screenshots: [
 					{
 						src: "./src/assets/Desktop.png",
-						sizes: "2872 × 1534",
+						sizes: "2872×1534",
 						type: "image/png",
             form_factor: "wide",
 					},
