@@ -55,8 +55,8 @@ export default defineConfig({
             form_factor: "wide",
 					},
 					{
-						src: "Mobile.png",
-						sizes: "720x1280",
+						src: "Mobile2.png",
+						sizes: "750x1330",
 						type: "image/png",
 					},
 				],
