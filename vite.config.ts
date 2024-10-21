@@ -19,17 +19,17 @@ export default defineConfig({
 				background_color: "#d4d4d4",
 				icons: [
 					{
-						src: "public/64x64.jpeg",
+						src: "public/64.png",
 						sizes: "64x64",
 						type: "image/png",
 					},
 					{
-						src: "/assets/pwa-128x128.png",
-						sizes: "1300×1390",
+						src: "/assets/128.png",
+						sizes: "128x128",
 						type: "image/png",
 					},
 					{
-						src: "public/144x144.jpeg",
+						src: "src/assets/144x144.jpeg",
 						sizes: "144x144",
 						type: "image/png",
 						purpose: "any",
