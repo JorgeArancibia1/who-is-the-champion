@@ -19,12 +19,12 @@ export default defineConfig({
 				background_color: "#d4d4d4",
 				icons: [
 					{
-						src: "public/64.png",
+						src: "./public/64.png",
 						sizes: "64x64",
 						type: "image/png",
 					},
 					{
-						src: "src/assets/128.png",
+						src: "./src/assets/128.png",
 						sizes: "128x128",
 						type: "image/png",
 					},
