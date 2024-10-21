@@ -24,24 +24,24 @@ export default defineConfig({
 						type: "image/png",
 					},
 					{
-						src: "./src/assets/128.png",
+						src: "128.png",
 						sizes: "128x128",
 						type: "image/png",
 					},
 					{
-						src: "src/assets/144.png",
+						src: "144.png",
 						sizes: "144x144",
 						type: "image/png",
 						purpose: "any",
 					},
 					{
-						src: "/assets/192.png",
+						src: "192.png",
 						sizes: "192×192",
 						type: "image/png",
 						purpose: "any",
 					},
 					{
-						src: "/assets/512.png",
+						src: "512.png",
 						sizes: "512×512",
 						type: "image/png",
 						purpose: "maskable",
