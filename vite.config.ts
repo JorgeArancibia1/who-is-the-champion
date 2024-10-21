@@ -36,13 +36,13 @@ export default defineConfig({
 					},
 					{
 						src: "192.png",
-						sizes: "192×192",
+						sizes: "192x192",
 						type: "image/png",
 						purpose: "any",
 					},
 					{
 						src: "512.png",
-						sizes: "512×512",
+						sizes: "512x512",
 						type: "image/png",
 						purpose: "maskable",
 					},
@@ -50,7 +50,7 @@ export default defineConfig({
 				screenshots: [
 					{
 						src: "Desktop.png",
-						sizes: "2872×1534",
+						sizes: "2872x1534",
 						type: "image/png",
             form_factor: "wide",
 					},
