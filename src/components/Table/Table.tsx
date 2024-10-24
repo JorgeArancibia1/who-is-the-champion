@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Game } from "../../interfaces";
+import { Game } from "../../games/interfaces";
 
 const TABLE_HEAD = ["Lugar", "Día", "Mes", "Hora"];
 
@@ -59,14 +59,14 @@ const TABLE_HEAD = ["Lugar", "Día", "Mes", "Hora"];
 // fetch("http://localhost:3000/api/game").then((response) => {
 //   response.json().then((data) => {
 //     console.log(data);
-//   });
+//   })
 // });
 
 export function TableWithStripe() {
 	const [games, setGames] = useState([] as Game[]);
 
 	useEffect(() => {
-		fetch("http://localhost:3003/api/games")
+		fetch(`${import.meta.env.VITE_REACT_API_URL}/api/games`)
 			.then((response) => response.json())
 			.then((data) => setGames(data))
 			.catch((error) => console.log(error));

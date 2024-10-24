@@ -8,9 +8,9 @@ interface InputPlayerProps {
 	colorUser: string;
 }
 
-const InputPlayer: FC<InputPlayerProps> = ({ name, index, colorUser }) => {
+export const InputPlayer: FC<InputPlayerProps> = ({ name, index, colorUser }) => {
 	const { control, getValues } = useFormContext();
-	// console.log(getValues());
+
 	const initialValues = getValues(); // Obtener los valores iniciales de los campos
 
 	return (
@@ -31,7 +31,7 @@ const InputPlayer: FC<InputPlayerProps> = ({ name, index, colorUser }) => {
 				defaultValue={initialValues[name]} // Pasar el valor inicial al campo
 				render={({ field }) => (
 					<input
-						className='border border-gray-700 rounded-md bg-gray-800 p-2 text-xs w-22 sm:w-44'
+						className='border border-gray-700 rounded-md dark:bg-gray-800 dark:text-gray-200 text-gray-500 p-2 text-xs w-22 sm:w-44'
 						placeholder='Player name'
 						value={field.value}
 						onChange={field.onChange}
@@ -41,5 +41,3 @@ const InputPlayer: FC<InputPlayerProps> = ({ name, index, colorUser }) => {
 		</div>
 	);
 };
-
-export default InputPlayer;

@@ -1,5 +1,4 @@
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
-import { Admin } from '../views/Admin';
 import { Home } from '../views/Home';
 
 export const Navigation = () => {
@@ -37,9 +36,9 @@ export const Navigation = () => {
 				</nav>
 
 				<Routes>
-					<Route path='admin' element={<Admin />} />
 					<Route path='/' element={<Home />} />
-					<Route path='/*' element={<h1>No se ha encontrado la página</h1>} />
+					{/* <Route path='admin' element={<Admin />} /> */}
+					<Route path='/*' element={<h1>No se ha encontrado la página.</h1>} />
 				</Routes>
 			</div>
 		</BrowserRouter>

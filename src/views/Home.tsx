@@ -27,6 +27,11 @@ import { useUpdateGameMutation } from '../hooks/games/useUpdateGameMutation';
 //   };
 // };
 
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const MySwal = withReactContent(Swal)
+
 interface InputsProps {
 	id: string;
 	place: string;
@@ -80,6 +85,27 @@ export const Home = () => {
 		updateGame.mutate(data);
 		// console.log(updateGame.data);
 	};
+
+	// MySwal.fire({
+	// 	title: <p>Hello World</p>,
+	// 	didOpen: () => {
+	// 		// `MySwal` is a subclass of `Swal` with all the same instance & static methods
+	// 		MySwal.showLoading()
+	// 	},
+	// }).then(() => {
+	// 	return MySwal.fire(<p>Shorthand works too</p>)
+	// })
+
+	// useEffect(() => {
+		if (updateGame.isSuccess) {
+			MySwal.fire({
+				title: <p>Ya estás inscrito</p>,
+				icon: 'success',
+				showConfirmButton: false,
+				timer: 1500,
+			});
+		}
+	// }, [updateGame.isSuccess]);
 
 	return (
 		<FormProvider {...methods}>
