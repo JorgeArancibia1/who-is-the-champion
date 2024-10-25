@@ -26,7 +26,6 @@ export const App = () => {
 	return (
 		<div className='section'>
 			{/* <Home /> */}
-			<ButtonSesion />
 			<Navigation />
 			{/* <Admin /> */}
 		</div>
