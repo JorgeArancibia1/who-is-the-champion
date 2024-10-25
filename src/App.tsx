@@ -1,6 +1,5 @@
 // import { useState } from 'react';
 import './App.css';
-import { ButtonSesion } from './components/Sesion/ButtonSesion';
 import { Navigation } from './routes/Navigation';
 export const App = () => {
 	// const [players, setPlayers] = useState({});
