@@ -34,7 +34,7 @@ export const Join = ({
 						</button>
 					</div>
 					<p className='text-sm font-medium text-gray-500 pt-1 text-left'>
-						Si ya estas registrado ingresa{' '}
+						Si ya estas registrado ingresa{" "}
 						<button
 							className='bg-transparent p-0 text-sm text-blue-700 hover:underline hover:text-blue-600 focus:outline-none'
 							onClick={openLogin}
