@@ -94,7 +94,7 @@ export const Join = ({
 							<div>
 								<label
 									htmlFor='Celular'
-									className='font-semibold block mt-3 mb-1 text-left flex gap-2 '
+									className='font-semibold mt-3 mb-1 text-left flex gap-2 '
 								>
 									Celular
 									<p className='text-xs text-gray-500 pt-1'>(opcional)</p>
