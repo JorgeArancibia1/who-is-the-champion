@@ -1,7 +1,7 @@
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
-import { Home } from '../views/Home';
-import { ButtonSesion } from '../components/Sesion/ButtonSesion';
 import { useState } from 'react';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Admin } from '../views/Admin';
+import { Home } from '../views/Home';
 
 export const Navigation = () => {
 	const [showSesion, setShowSesion] = useState(false);
@@ -25,7 +25,7 @@ export const Navigation = () => {
 								Home
 							</NavLink>
 						</li>
-						<li>|</li>
+						{/* <li>|</li>
 						<li>
 							<NavLink
 								to='/admin'
@@ -40,14 +40,14 @@ export const Navigation = () => {
 							>
 								Admin
 							</NavLink>
-						</li>
+						</li> */}
 					</ul>
 				</nav>
 
-				<ButtonSesion showSesion={showSesion} />
+				{/* <ButtonSesion showSesion={showSesion} /> */}
 				<Routes>
 					<Route path='/' element={<Home />} />
-					{/* <Route path='admin' element={<Admin />} /> */}
+					<Route path='admin' element={<Admin />} />
 					<Route path='/*' element={<h1>No se ha encontrado la página.</h1>} />
 				</Routes>
 			</div>
