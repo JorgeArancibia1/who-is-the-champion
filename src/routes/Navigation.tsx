@@ -5,6 +5,7 @@ import { Home } from '../views/Home';
 
 export const Navigation = () => {
 	const [showSesion, setShowSesion] = useState(false);
+	console.log(showSesion)
 	return (
 		<BrowserRouter>
 			<div className='main-layout text-sm'>

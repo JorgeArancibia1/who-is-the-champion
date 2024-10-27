@@ -19,29 +19,29 @@ export default defineConfig({
 				background_color: "#d4d4d4",
 				icons: [
 					{
-						src: "64.png",
+						src: "64x64-PNG.png",
 						sizes: "64x64",
 						type: "image/png",
 					},
 					{
-						src: "128.png",
+						src: "128x128-PNG.png",
 						sizes: "128x128",
 						type: "image/png",
 					},
 					{
-						src: "144.png",
+						src: "144x144-PNG.png",
 						sizes: "144x144",
 						type: "image/png",
 						purpose: "any",
 					},
 					{
-						src: "192.png",
+						src: "192x192-PNG.png",
 						sizes: "192x192",
 						type: "image/png",
 						purpose: "any",
 					},
 					{
-						src: "512.png",
+						src: "512x512-PNG.png",
 						sizes: "512x512",
 						type: "image/png",
 						purpose: "maskable",
