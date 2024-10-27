@@ -1,12 +1,9 @@
 // import { useState } from 'react';
-import "./App.css";
-import { Navigation } from "./routes/Navigation";
-
+import './App.css';
+import { Navigation } from './routes/Navigation';
 export const App = () => {
 	// const [players, setPlayers] = useState({});
 	// console.log(players);
-
-
 
 	// useEffect(() => {
 	// 	try {
