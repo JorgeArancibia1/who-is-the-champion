@@ -7,6 +7,11 @@ export default defineConfig({
 	plugins: [
 		react(),
 		VitePWA({
+			registerType: 'autoUpdate',
+			workbox: {
+        clientsClaim: true,
+        skipWaiting: true
+      },
 			manifest: {
 				display: "standalone",
 				display_override: ["window-controls-overlay"],
