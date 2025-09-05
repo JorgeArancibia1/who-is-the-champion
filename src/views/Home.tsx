@@ -30,7 +30,7 @@ import { useUpdateGameMutation } from '../hooks/games/useUpdateGameMutation';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
-const MySwal = withReactContent(Swal)
+const MySwal = withReactContent(Swal);
 
 interface InputsProps {
 	id: string;
@@ -97,37 +97,39 @@ export const Home = () => {
 	// })
 
 	// useEffect(() => {
-		if (updateGame.isSuccess) {
-			MySwal.fire({
-				title: <p>Ya estás inscrito</p>,
-				icon: 'success',
-				showConfirmButton: false,
-				timer: 1500,
-			});
-		}
+	if (updateGame.isSuccess) {
+		MySwal.fire({
+			title: <p>Ya estás inscrito</p>,
+			icon: 'success',
+			showConfirmButton: false,
+			timer: 1500,
+		});
+	}
 	// }, [updateGame.isSuccess]);
 
 	return (
-		<FormProvider {...methods}>
-			{lastGame !== undefined && lastGame !== null && !isLoadingLastGame && (
-				<form onSubmit={methods.handleSubmit(onSubmit)}>
-					<h1 className='text-4xl font-bold'>{`Partido ${lastGame.day} de ${lastGame.month}`}</h1>
-					<h1 className='text-3xl'>{lastGame.hour}</h1>
-					<h1 className='text-2xl mb-4'>{lastGame.place}</h1>
-					<div className='grid md:grid-cols-2 gap-8'>
-						<TeamComponent teamName='teamA' teamColor='blue' />
-						<TeamComponent teamName='teamB' teamColor='red' />
-					</div>
-					<button
-						className='mt-4 w-full bg-gray-800 hover:bg-gray-700 text-white'
-						type='submit'
-					>
-						Enviar
-					</button>
-				</form>
-			)}
+		<div className="min-h-screen w-screen bg-gradient-to-br from-green-900 via-green-700 to-emerald-900">
+			<FormProvider {...methods}>
+				{lastGame !== undefined && lastGame !== null && !isLoadingLastGame && (
+					<form onSubmit={methods.handleSubmit(onSubmit)}>
+						<h1 className='text-4xl font-bold'>{`Partido ${lastGame.day} de ${lastGame.month}`}</h1>
+						<h1 className='text-3xl'>{lastGame.hour}</h1>
+						<h1 className='text-2xl mb-4'>{lastGame.place}</h1>
+						<div className='grid md:grid-cols-2 gap-4 max-w-4xl mx-auto'>
+							<TeamComponent teamName='teamA' teamColor='blue' />
+							<TeamComponent teamName='teamB' teamColor='red' />
+						</div>
+						<button
+							className='mt-4 w-full bg-gray-200 hover:bg-gray-100 text-gray-800 font-bold py-2 px-4 rounded'
+							type='submit'
+						>
+							Enviar
+						</button>
+					</form>
+				)}
 
-			{!!lastGameError && <p>Hubo un error con la dirección.</p>}
-		</FormProvider>
+				{!!lastGameError && <p>Hubo un error con la dirección.</p>}
+			</FormProvider>
+		</div>
 	);
 };

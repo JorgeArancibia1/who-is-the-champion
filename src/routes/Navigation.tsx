@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Admin } from '../views/Admin';
 import { Home } from '../views/Home';
+import { LoginView } from '../views/Login';
 
 export const Navigation = () => {
 	const [showSesion, setShowSesion] = useState(false);
 	console.log(showSesion)
 	return (
 		<BrowserRouter>
-			<div className='main-layout text-sm'>
+			<div className='main-layout text-sm bg-gradient-to-br from-green-900 via-green-700 to-emerald-900'>
 				<nav>
 					<ul className='flex justify-center space-x-2'>
 						<li>
@@ -42,6 +43,22 @@ export const Navigation = () => {
 								Admin
 							</NavLink>
 						</li> */}
+						<li>|</li>
+						<li>
+							<NavLink
+								to='/login'
+								className={({ isActive }) => {
+									if (isActive) {
+										setShowSesion(false);
+									}
+									return isActive
+										? 'text-green-300'
+										: 'text-white trasition-all duration-500 ease-out hover:text-blue-500';
+								}}
+							>
+								Ingresa
+							</NavLink>
+						</li>
 					</ul>
 				</nav>
 
@@ -49,6 +66,7 @@ export const Navigation = () => {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='admin' element={<Admin />} />
+					<Route path='login' element={<LoginView />} />
 					<Route path='/*' element={<h1>No se ha encontrado la página.</h1>} />
 				</Routes>
 			</div>

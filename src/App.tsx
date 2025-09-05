@@ -23,7 +23,8 @@ export const App = () => {
 	// }, [game]);
 
 	return (
-		<div className='section'>
+		<div
+			className='bg-gradient-to-br from-green-900 via-green-700 to-emerald-900 min-h-screen'>
 			{/* <Home /> */}
 			<Navigation />
 			{/* <Admin /> */}
