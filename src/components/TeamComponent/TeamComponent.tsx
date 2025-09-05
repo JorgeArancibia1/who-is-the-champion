@@ -17,13 +17,13 @@ interface TeamComponentProps {
 const TeamComponent: FC<TeamComponentProps> = ({ teamName, teamColor }) => {
 	return (
 		<div
-			className={`p-6 space-y-4 rounded-lg  ${
-				teamColor === 'blue' ? 'bg-blue-900/30' : 'bg-red-900/30'
+			className={`py-6 m-6 space-y-4 rounded-lg flex flex-col items-center ${
+				teamColor === 'blue' ? 'bg-green-500/30 shadow-lg' : 'bg-green-500/30 shadow-lg'
 			}`}
 		>
 			<h3
-				className={`text-lg font-semibold ${
-					teamColor === 'blue' ? 'text-blue-400' : 'text-red-400'
+				className={`text-lg font-semibold mb-4 ${
+					teamColor === 'blue' ? 'text-blue-400' : 'text-white-400'
 				}`}
 			>
 				{teamName.replace('team', 'Team ')}
