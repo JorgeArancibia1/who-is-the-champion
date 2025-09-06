@@ -29,6 +29,7 @@ import { useUpdateGameMutation } from '../hooks/games/useUpdateGameMutation';
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { PelotaFutbol } from '../components/Loading/PelotaFutbol';
 
 const MySwal = withReactContent(Swal);
 
@@ -77,7 +78,11 @@ export const Home = () => {
 	}
 
 	if (isLoadingLastGame) {
-		return <div>Loading...</div>;
+		return (
+			<div>
+				<PelotaFutbol />
+			</div>
+		);
 	}
 
 	const onSubmit: SubmitHandler<InputsProps> = (data) => {
@@ -108,7 +113,7 @@ export const Home = () => {
 	// }, [updateGame.isSuccess]);
 
 	return (
-		<div className="min-h-screen w-screen bg-gradient-to-br from-green-900 via-green-700 to-emerald-900">
+		<div className='min-h-screen w-screen bg-gradient-to-br from-green-900 via-green-700 to-emerald-900'>
 			<FormProvider {...methods}>
 				{lastGame !== undefined && lastGame !== null && !isLoadingLastGame && (
 					<form onSubmit={methods.handleSubmit(onSubmit)}>
